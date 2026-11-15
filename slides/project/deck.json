@@ -4,7 +4,7 @@
   "lists": "css",
   "format": { "v": 1, "shared": ["project/deck.css"] },
   "title": "Reinternação em Diabetes – Slides",
-  "order": ["cover", "problema", "dataset", "eda", "limpeza", "features", "pipeline", "modelos", "resultados", "matriz", "variaveis", "critica", "proximos"],
+  "order": ["cover", "problema", "dataset", "eda", "distribuicoes", "outliers", "padroes", "sem_separacao", "limpeza", "features", "pipeline", "modelos", "resultados", "matriz", "variaveis", "critica", "proximos"],
   "sections": {
     "s1": { "description": "Problema, contexto e dados.", "start": "cover" },
     "s2": { "description": "Limpeza e preparação dos dados.", "start": "limpeza" },

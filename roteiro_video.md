@@ -53,6 +53,14 @@ Total: cerca de 10 min 40 s se todos usarem o tempo cheio. Por isso o alvo real 
 - Gráficos do notebook: histogramas e boxplots das variáveis numéricas (contagens assimétricas, com outliers) e a matriz de correlação.
 - Preencham com 1 ou 2 padrões que vocês viram nos gráficos, pelo que aparecer na saída real.
 
+## 4b. Gráficos da análise exploratória (4 slides extras, depois do slide 4)
+Se o tempo apertar, mostrem só o "Quem já foi muito internado volta mais" e deixem os outros no notebook.
+- **Distribuições (notebook 6.2):** number_emergency, number_outpatient e number_inpatient se concentram em zero. time_in_hospital e num_medications têm cauda longa à direita. num_lab_procedures é a mais simétrica.
+- **Outliers (notebook 6.3):** medicamentos e exames laboratoriais têm muitos valores altos, e as contagens de internações e consultas são quase todas zero com o resto como outlier. Os outliers foram mantidos, porque são casos clínicos reais.
+- **Padrões (notebook 6.4):** a taxa de reinternação sobe com o número de internações prévias, de cerca de 8% (nenhuma) a cerca de 48% (8 ou mais). Por idade a variação é pequena, com pico em 20 a 30 anos (cerca de 14%) e taxas baixas até 20 anos.
+- **Sem separação (notebook 6.5):** o tempo de internação tem a mesma distribuição nas duas classes, e no gráfico de dispersão os reinternados se misturam aos demais. Isso ajuda a explicar o ROC-AUC moderado.
+- Numeração dos slides: com esses quatro, o deck passa a ter 17 slides e os números da tabela de tempo acima ficam deslocados em 4 a partir do slide 5.
+
 ## 5. Limpeza
 - "?" convertido para nulo.
 - `weight` removida, por ter cerca de 97% de faltantes.
@@ -111,8 +119,9 @@ Total: cerca de 10 min 40 s se todos usarem o tempo cheio. Por isso o alvo real 
 - `discharge_disposition_id`, em especial o código de alta para casa: está entre as variáveis mais usadas pelo modelo.
 - `number_inpatient`: número de internações no último ano, sinal ligado ao uso recente do sistema de saúde.
 - `time_in_hospital`, `num_medications` e `num_lab_procedures`: refletem a complexidade da internação atual.
+- A relação de `number_inpatient` com a reinternação está comprovada no gráfico do slide "Quem já foi muito internado volta mais": a taxa sobe a cada degrau. Para alta para casa não há gráfico.
 - Leitura: o histórico recente e a complexidade do caso são os principais sinais de retorno precoce, o que confirma a hipótese inicial.
-- Cuidado ao falar: a importância do Random Forest mostra quais variáveis o modelo mais usou, não a direção do efeito. Evitem dizer que alta para casa "reduz" o risco ou que internações prévias aumentam o risco "exponencialmente", a menos que mostrem um gráfico no notebook que comprove, como a taxa de reinternação por número de internações prévias.
+- Cuidado ao falar: a importância do Random Forest mostra quais variáveis o modelo mais usou, não a direção do efeito. Para internações prévias vale o gráfico acima. Para alta para casa, evitem dizer que "reduz" o risco sem mostrar a taxa por tipo de alta.
 
 ## 12. Análise crítica
 - Desempenho: ROC-AUC de 0,659 e recall de 50,1% são moderados. Serve como apoio à triagem, não para decidir sozinho.
