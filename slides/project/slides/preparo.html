@@ -1,0 +1,12 @@
+<section id="preparo" class="tint">
+<p class="eyebrow">ATRIBUTOS, PIPELINE E MODELOS</p>
+<h2>Do dado limpo ao modelo em quatro passos</h2>
+<div class="steps">
+<div class="step"><p class="sn">1</p><h3>Atributos</h3><p class="ct">Saem identificadores e readmitted (origem do alvo). CID-9 agrupado, idade pelo ponto médio. 9 numéricas, o resto categórico.</p></div>
+<div class="step"><p class="sn">2</p><h3>Divisão</h3><p class="ct">80% treino e 20% teste, estratificada pelo alvo.</p></div>
+<div class="step"><p class="sn">3</p><h3>Transformação</h3><p class="ct">StandardScaler nas numéricas e OneHotEncoder nas categóricas, dentro de um Pipeline.</p></div>
+<div class="step"><p class="sn">4</p><h3>Modelos</h3><p class="ct">Regressão Logística (baseline) e Random Forest (200 árvores, profundidade 12), com class_weight balanceado.</p></div>
+</div>
+<p class="lead">O pré-processamento é ajustado só no treino, o que evita vazamento para o teste. O class_weight dá mais peso à classe rara, a de quem reinterna.</p>
+<aside>Integrante 2 assume. Mostrar no notebook a classificação das variáveis, a separação em X e y, o split e o Pipeline. Explicar por que readmitted ficou de fora: seria o próprio alvo. Justificar a escolha dos dois modelos: um linear e interpretável e um não linear que captura interações. Profundidade limitada e min_samples_leaf reduzem overfitting.</aside>
+</section>

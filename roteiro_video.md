@@ -4,93 +4,68 @@ Este arquivo reúne, slide por slide, o que mostrar e a informação disponível
 
 **Regras do vídeo:** no máximo 10 minutos, os dois integrantes com câmera aberta e os dois falando. Meta: terminar em 9 min 30 s.
 **Tela:** os slides acompanham a fala. Na hora de mostrar o código e as saídas, alternem para o notebook executado no Colab, na seção indicada em cada bloco.
-**Sugestão de divisão:** o integrante 1 (Bernardo) cobre os slides 1 a 6, e o integrante 2 cobre os slides 7 a 11. Os dois fazem o 12 e o 13.
+**Divisão sugerida:** o integrante 1 (Bernardo) fala os slides 2 a 5, o integrante 2 fala os slides 6 a 9, e os dois fecham no 10.
 
-## Ordem e tempo sugerido
+## Ordem e tempo sugerido (10 slides)
 
-| # | Slide | Notebook | Tempo sugerido |
-|---|---|---|---|
-| 1 | Capa | Primeira célula | 0:20 |
-| 2 | Problema | Seção 1 | 0:50 |
-| 3 | Dataset | Seções 3 e 4 | 0:50 |
-| 4 | Análise exploratória | Seções 5 e 6 | 1:10 |
-| 5 | Limpeza | Seções 7 e 8 | 1:10 |
-| 6 | Atributos | Seções 9 a 11 | 0:50 |
-| 7 | Pipeline | Seções 12 e 13 | 0:50 |
-| 8 | Modelos | Seção 14 | 0:40 |
-| 9 | Resultados | Seção 15 | 1:10 |
-| 10 | Matriz de confusão | Seção 15 | 0:50 |
-| 11 | Variáveis importantes | Seção 15 | 0:40 |
-| 12 | Análise crítica | Seção 16 | 0:50 |
-| 13 | Próximos passos | Seção 16 | 0:30 |
+| # | Slide | Notebook | Quem | Tempo |
+|---|---|---|---|---|
+| 1 | Capa | Primeira célula | 1 e 2 | 0:20 |
+| 2 | Problema e dados | Seções 1, 3 e 4 | 1 | 1:00 |
+| 3 | Alvo desbalanceado | Seções 5 e 6.1 a 6.3 | 1 | 1:00 |
+| 4 | Quem já foi muito internado volta mais | Seção 6.4 | 1 | 0:50 |
+| 5 | Limpeza | Seções 7 e 8 | 1 | 1:00 |
+| 6 | Atributos, pipeline e modelos | Seções 9 a 14 | 2 | 1:30 |
+| 7 | Resultados | Seção 15 | 2 | 1:10 |
+| 8 | Matriz de confusão | Seção 15 | 2 | 0:50 |
+| 9 | Variáveis importantes | Seção 15 | 2 | 0:50 |
+| 10 | Análise crítica e próximos passos | Seção 16 | 1 e 2 | 1:00 |
 
-Total: cerca de 10 min 40 s se todos usarem o tempo cheio. Por isso o alvo real é ficar um pouco abaixo em cada slide. Ensaiem com cronômetro e cortem onde passar.
+Total: cerca de 9 min 30 s. Se sobrar tempo, mostrem no notebook os gráficos de distribuições e outliers (6.2 e 6.3), que não têm slide próprio.
 
 ---
 
 ## 1. Capa
-- Título do trabalho: previsão de reinternação em menos de 30 dias de pacientes diabéticos.
+- Título: previsão de reinternação em menos de 30 dias de pacientes diabéticos.
 - Nome dos dois integrantes e a divisão de quem fala o quê.
 - Avisar que o código completo está no notebook e que os links do notebook, dos slides e do vídeo estão na primeira célula.
 
-## 2. Problema
+## 2. Problema e dados
 - A reinternação em até 30 dias é um indicador de qualidade do cuidado hospitalar e gera custo alto.
-- Pergunta do projeto: com os dados registrados durante a internação, dá para prever quem volta em menos de 30 dias?
-- Tipo de problema: classificação binária supervisionada. O alvo vale 1 se o paciente foi reinternado em menos de 30 dias e 0 nos demais casos.
+- Pergunta: com os dados registrados durante a internação, dá para prever quem volta em menos de 30 dias? Classificação binária supervisionada, com alvo 1 para reinternado em menos de 30 dias e 0 nos demais casos.
 - Uso prático: priorizar o acompanhamento pós-alta dos pacientes de maior risco.
+- Dataset: Diabetes 130-US Hospitals, 1999 a 2008, repositório UCI (link na primeira célula). Cerca de 100 mil internações, cerca de 50 colunas e 130 hospitais. Confirmem os números exatos na saída da célula de importação.
+- Valores faltantes vêm marcados com "?". A coluna `weight` tem cerca de 97% de faltantes. Há vários registros por paciente.
 
-## 3. Dataset
-- Nome: Diabetes 130-US Hospitals for Years 1999–2008, repositório UCI (público, link na primeira célula).
-- Tamanho original conhecido do dataset: cerca de 101 mil internações e 50 colunas, com variáveis numéricas e categóricas. Confirmem o número exato na saída da célula de importação.
-- Valores faltantes vêm marcados com "?" e não com nulo. A coluna `weight` tem cerca de 97% de faltantes.
-- Há vários registros por paciente (o mesmo paciente aparece em mais de uma internação), o que importa na limpeza.
-- No notebook: a célula da seção 4 baixa o arquivo e carrega com Pandas, e mostra `shape`, tipos e as primeiras linhas.
+## 3. Alvo desbalanceado
+- `readmitted` tem três valores. No dataset completo: cerca de 54% "NO", 35% ">30" e 11% "<30".
+- No alvo binário, a classe positiva fica em cerca de 9% no teste (1.257 de 13.998).
+- Um modelo que sempre diz "não" acerta cerca de 91% e não detecta ninguém. Por isso a avaliação usa recall, precisão, F1 e ROC-AUC.
+- Uma frase sobre as outras variáveis (notebook 6.2 e 6.3): as contagens são muito assimétricas, com mediana zero e máximos altos (por exemplo, 76 visitas à emergência). Os outliers foram mantidos porque são casos clínicos reais.
 
-## 4. Análise exploratória
-- Variável alvo: `readmitted` tem três valores, "<30", ">30" e "NO". Distribuição aproximada no dataset completo: 54% "NO", 35% ">30" e 11% "<30".
-- Ao transformar em alvo binário (só "<30" vale 1), a classe positiva fica em cerca de 9% no conjunto de teste (1.257 de 13.998). Ou seja, o alvo é desbalanceado.
-- Consequência: um modelo que sempre diz "não" acerta cerca de 91% e é inútil. Por isso a avaliação usa recall, precisão, F1 e ROC-AUC, e não só acurácia.
-- Gráficos do notebook: histogramas e boxplots das variáveis numéricas (contagens assimétricas, com outliers) e a matriz de correlação.
-- Preencham com 1 ou 2 padrões que vocês viram nos gráficos, pelo que aparecer na saída real.
-
-## 4b. Gráficos da análise exploratória (4 slides extras, depois do slide 4)
-Se o tempo apertar, mostrem só o "Quem já foi muito internado volta mais" e deixem os outros no notebook.
-- **Distribuições (notebook 6.2):** number_emergency, number_outpatient e number_inpatient se concentram em zero. time_in_hospital e num_medications têm cauda longa à direita. num_lab_procedures é a mais simétrica.
-- **Outliers (notebook 6.3):** medicamentos e exames laboratoriais têm muitos valores altos, e as contagens de internações e consultas são quase todas zero com o resto como outlier. Os outliers foram mantidos, porque são casos clínicos reais.
-- **Padrões (notebook 6.4):** a taxa de reinternação sobe com o número de internações prévias, de cerca de 8% (nenhuma) a cerca de 48% (8 ou mais). Por idade a variação é pequena, com pico em 20 a 30 anos (cerca de 14%) e taxas baixas até 20 anos.
-- **Sem separação (notebook 6.5):** o tempo de internação tem a mesma distribuição nas duas classes, e no gráfico de dispersão os reinternados se misturam aos demais. Isso ajuda a explicar o ROC-AUC moderado.
-- Numeração dos slides: com esses quatro, o deck passa a ter 17 slides e os números da tabela de tempo acima ficam deslocados em 4 a partir do slide 5.
+## 4. Quem já foi muito internado volta mais
+- A taxa de reinternação sobe de cerca de 8% (nenhuma internação prévia) para cerca de 48% (8 ou mais).
+- Por idade a variação é pequena, com pico em 20 a 30 anos (cerca de 14%) e taxas baixas até 20 anos.
+- Valores aproximados, lidos do gráfico 6.4. Confirmem na saída do notebook.
+- Ponte para o fim: o tempo de internação é igual nas duas classes (gráfico 6.5), então nenhuma variável sozinha separa quem volta.
 
 ## 5. Limpeza
 - "?" convertido para nulo.
 - `weight` removida, por ter cerca de 97% de faltantes.
-- Faltantes de `payer_code`, `medical_specialty`, `race` e dos diagnósticos preenchidos com "Desconhecido", para não perder linhas e manter a informação de que o dado não existia.
-- Gênero "Unknown/Invalid" removido (pouquíssimos casos).
-- Removidos pacientes que morreram ou foram para hospice (códigos de alta 11, 13, 14, 19, 20 e 21): eles não podem ser reinternados, então distorceriam o alvo.
-- Mantida só a primeira internação de cada paciente, para evitar vazamento: o mesmo paciente não pode aparecer no treino e no teste.
-- Tamanho após a limpeza: aproximadamente 70 mil linhas (deduzido do conjunto de teste de 13.998, que é 20% do total). Confirmem na saída do notebook, junto do número antes da limpeza.
+- Faltantes de `payer_code`, `medical_specialty`, `race` e dos diagnósticos preenchidos com "Desconhecido".
+- Gênero "Unknown/Invalid" removido.
+- Removidos pacientes que morreram ou foram para hospice (códigos de alta 11, 13, 14, 19, 20 e 21): não podem ser reinternados.
+- Mantida só a primeira internação de cada paciente, para evitar vazamento entre treino e teste.
+- Tamanho após a limpeza: cerca de 70 mil linhas (deduzido do teste de 13.998 linhas, que é 20% do total). Confirmem na saída do notebook, junto do número antes da limpeza.
 
-## 6. Atributos
-- Removidos: identificadores (`encounter_id`, `patient_nbr`), colunas constantes e `readmitted`, que é a origem do alvo e geraria vazamento.
-- Diagnósticos CID-9 agrupados em categorias maiores.
-- Idade (faixas como "[50-60)") convertida para o ponto médio da faixa.
-- `medical_specialty` e `payer_code` limitadas às 10 categorias mais frequentes, com o resto agrupado em "Outros".
-- Resultado final: 9 variáveis numéricas e as demais categóricas (confirmem a contagem exata no notebook).
-- Separação de X (atributos) e y (alvo binário).
+## 6. Atributos, pipeline e modelos
+- Removidos: identificadores, colunas constantes e `readmitted` (origem do alvo, geraria vazamento).
+- Diagnósticos CID-9 agrupados, idade pelo ponto médio da faixa, `medical_specialty` e `payer_code` limitadas às 10 categorias mais frequentes. 9 variáveis numéricas e as demais categóricas.
+- Divisão 80% treino e 20% teste, estratificada.
+- `ColumnTransformer` com `StandardScaler` nas numéricas e `OneHotEncoder` nas categóricas, dentro de um `Pipeline`: o pré-processamento é aprendido só no treino.
+- Modelos: Regressão Logística (baseline, interpretável) e Random Forest (200 árvores, profundidade 12, captura interações). Nos dois, `class_weight="balanced"`.
 
-## 7. Pipeline
-- Divisão treino/teste: 80% / 20%, estratificada, para manter a proporção da classe rara nos dois conjuntos. Teste com 13.998 linhas.
-- `ColumnTransformer`: `StandardScaler` nas numéricas e `OneHotEncoder` nas categóricas.
-- Tudo dentro de um `Pipeline` do scikit-learn: o pré-processamento é aprendido só no treino e aplicado no teste, sem vazamento.
-- No notebook, mostrem o número de colunas depois do one-hot.
-
-## 8. Modelos
-- Regressão Logística: baseline simples e interpretável.
-- Random Forest: 200 árvores com profundidade limitada, captura interações e relações não lineares.
-- Nos dois, `class_weight="balanced"`, que dá mais peso à classe rara para compensar o desbalanceamento.
-- Por que dois modelos: comparar um modelo linear com um de árvores e escolher o melhor com base nas métricas do teste.
-
-## 9. Resultados (conjunto de teste)
+## 7. Resultados (conjunto de teste)
 
 | Modelo | Acurácia | Precisão | Recall | F1 | ROC-AUC |
 |---|---|---|---|---|---|
@@ -99,43 +74,34 @@ Se o tempo apertar, mostrem só o "Quem já foi muito internado volta mais" e de
 | Sempre prevê "não" | 91,0% | 0% | 0% | 0% | 0,500 |
 
 - O Random Forest foi o melhor: ganha em acurácia, precisão, F1 e ROC-AUC. A Regressão Logística tem recall um pouco maior (52,2% contra 50,1%).
-- A acurácia engana: prever sempre "não" dá a maior acurácia (91,0%) e não detecta nenhum reinternado.
-- ROC-AUC de 0,659: o modelo separa as duas classes melhor que o acaso (0,5), mas longe do ideal (1,0). É um desempenho moderado.
+- A acurácia engana: o baseline tem a maior acurácia e não detecta nenhum reinternado.
+- ROC-AUC de 0,659: melhor que o acaso (0,5), longe do ideal (1,0). Desempenho moderado.
 - Mostrem no notebook a tabela de métricas e a curva ROC.
 
-## 10. Matriz de confusão (Random Forest, teste)
+## 8. Matriz de confusão (Random Forest, teste)
 
 |  | Previu "não" | Previu "sim" |
 |---|---|---|
 | Era "não" | 9.301 (verdadeiro negativo) | 3.440 (falso positivo) |
 | Era "sim" | 627 (falso negativo) | 630 (verdadeiro positivo) |
 
-- Recall de 50,1%: o modelo detecta cerca de metade dos reinternados (630 de 1.257).
+- Recall de 50,1%: detecta cerca de metade dos reinternados (630 de 1.257).
 - Precisão de 15,4%: só cerca de 15% dos alertas estão certos. Para cada paciente de risco identificado, 5 a 6 recebem acompanhamento sem precisar.
-- O falso negativo (627 pacientes de risco não identificados) é o erro mais caro em saúde. O falso positivo custa um acompanhamento extra.
-- Ajustar o limiar de decisão mudaria esse equilíbrio entre recall e precisão.
+- O falso negativo é o erro mais caro em saúde. O falso positivo custa um acompanhamento extra.
 
-## 11. Variáveis importantes (Random Forest)
-- `discharge_disposition_id`, em especial o código de alta para casa: está entre as variáveis mais usadas pelo modelo.
-- `number_inpatient`: número de internações no último ano, sinal ligado ao uso recente do sistema de saúde.
-- `time_in_hospital`, `num_medications` e `num_lab_procedures`: refletem a complexidade da internação atual.
-- A relação de `number_inpatient` com a reinternação está comprovada no gráfico do slide "Quem já foi muito internado volta mais": a taxa sobe a cada degrau. Para alta para casa não há gráfico.
+## 9. Variáveis importantes (Random Forest)
+- `discharge_disposition_id` (em especial alta para casa), `number_inpatient` e, depois, `time_in_hospital`, `num_medications` e `num_lab_procedures`.
+- A relação de `number_inpatient` com a reinternação está comprovada no gráfico do slide 4. Para alta para casa não há gráfico.
+- A importância do Random Forest mostra quais variáveis o modelo mais usou, não a direção do efeito. Evitem dizer que alta para casa "reduz" o risco sem mostrar a taxa por tipo de alta.
 - Leitura: o histórico recente e a complexidade do caso são os principais sinais de retorno precoce, o que confirma a hipótese inicial.
-- Cuidado ao falar: a importância do Random Forest mostra quais variáveis o modelo mais usou, não a direção do efeito. Para internações prévias vale o gráfico acima. Para alta para casa, evitem dizer que "reduz" o risco sem mostrar a taxa por tipo de alta.
 
-## 12. Análise crítica
-- Desempenho: ROC-AUC de 0,659 e recall de 50,1% são moderados. Serve como apoio à triagem, não para decidir sozinho.
-- Trade-off: em saúde, deixar passar um paciente de risco costuma custar mais que um alarme falso.
-- Limitações dos dados: 1999 a 2008, só hospitais dos EUA, sem fatores socioeconômicos nem adesão ao tratamento. Os dados da internação explicam só parte da reinternação.
+## 10. Análise crítica e próximos passos
+- Desempenho moderado: serve como apoio à triagem, não para decidir sozinho. Nenhuma variável sozinha separa as classes.
+- Em saúde, deixar passar um paciente de risco custa mais que um alarme falso, então o ajuste do limiar é o primeiro passo.
+- Limitações: dados de 1999 a 2008, só hospitais dos EUA, sem fatores socioeconômicos nem adesão ao tratamento.
 - Ética: usar raça e gênero em modelos clínicos exige cautela para não discriminar.
-
-## 13. Próximos passos
-- Busca de hiperparâmetros com validação cruzada.
-- Modelos de Gradient Boosting.
-- Ajuste do limiar de decisão para priorizar o recall.
-- Técnicas de balanceamento como SMOTE.
-- Mais engenharia de atributos.
-- Fechamento: o notebook está no GitHub, e os links dos slides e do vídeo estão na primeira célula. Agradecimento dos dois.
+- Próximos passos: ajuste do limiar, busca de hiperparâmetros com validação cruzada, Gradient Boosting, SMOTE e mais engenharia de atributos.
+- Fechamento: o notebook está no GitHub, os links dos slides e do vídeo estão na primeira célula. Agradecimento dos dois.
 
 ---
 

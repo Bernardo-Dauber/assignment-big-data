@@ -1,11 +1,12 @@
 <section id="critica" class="tint">
-<p class="eyebrow">ANÁLISE CRÍTICA</p>
-<h2>O que os resultados permitem concluir, e o que não</h2>
-<div class="cards two">
-<div class="card cool"><p class="tag">DESEMPENHO</p><h3>É suficiente?</h3><p class="ct">ROC-AUC de 0,659 e recall de 50,1%: desempenho moderado, útil para triagem, mas não para decidir sozinho.</p></div>
-<div class="card cool"><p class="tag">TRADE-OFF</p><h3>Recall x precisão</h3><p class="ct">Em saúde, deixar passar um paciente de risco tende a custar mais que um alarme falso. Ajustar o limiar muda esse equilíbrio.</p></div>
-<div class="card hot"><p class="tag">LIMITAÇÕES</p><h3>Dados datados</h3><p class="ct">1999–2008, só hospitais dos EUA, sem fatores socioeconômicos nem adesão ao tratamento.</p></div>
-<div class="card hot"><p class="tag">ÉTICA</p><h3>Cuidado com vieses</h3><p class="ct">Usar raça e gênero em modelos clínicos exige cautela para não discriminar.</p></div>
+<p class="eyebrow">ANÁLISE CRÍTICA E PRÓXIMOS PASSOS</p>
+<h2>Útil para triagem, mas não para decidir sozinho</h2>
+<div class="cards">
+<div class="card cool"><p class="tag">DESEMPENHO</p><h3>É suficiente?</h3><p class="ct">ROC-AUC de 0,659 e recall de 50,1%. Nenhuma variável sozinha separa quem volta, e os dados da internação explicam só parte da reinternação.</p></div>
+<div class="card hot"><p class="tag">LIMITAÇÕES E ÉTICA</p><h3>Cuidado ao usar</h3><p class="ct">Dados de 1999 a 2008, só de hospitais dos EUA, sem fatores socioeconômicos. Usar raça e gênero em modelos clínicos exige cautela para não discriminar.</p></div>
+<div class="card cool"><p class="tag">PRÓXIMOS PASSOS</p><h3>Como melhorar</h3><p class="ct">Ajustar o limiar de decisão, buscar hiperparâmetros com validação cruzada, testar Gradient Boosting e SMOTE.</p></div>
 </div>
-<aside>Os dois integrantes. Conectar o desempenho moderado (ROC-AUC 0,659) ao fato de os dados da internação explicarem só parte da reinternação.</aside>
+<p class="lead">Em saúde, deixar passar um paciente de risco custa mais que um alarme falso: por isso o limiar é o primeiro ajuste.</p>
+<p class="src">Notebook: github.com/Bernardo-Dauber/assignment-big-data</p>
+<aside>Os dois integrantes. Conectar o desempenho moderado ao fato de, na análise exploratória, o tempo de internação ser igual nas duas classes e os reinternados se misturarem aos demais (gráfico 6.5 do notebook). Fechar agradecendo e confirmar que os links do notebook, dos slides e do vídeo estão na primeira célula.</aside>
 </section>
