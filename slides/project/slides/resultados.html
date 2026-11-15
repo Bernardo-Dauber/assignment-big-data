@@ -1,11 +1,12 @@
 <section id="resultados">
 <p class="eyebrow">RESULTADOS NO CONJUNTO DE TESTE</p>
-<h2>Comparação dos modelos</h2>
+<h2>O Random Forest foi o melhor modelo</h2>
 <table class="tbl">
-<tr><th style="width:28%">Modelo</th><th style="width:14%">Acurácia</th><th style="width:14%">Precisão</th><th style="width:14%">Recall</th><th style="width:14%">F1</th><th style="width:16%">ROC-AUC</th></tr>
-<tr><td>Regressão Logística</td><td>[__]</td><td>[__]</td><td>[__]</td><td>[__]</td><td>[__]</td></tr>
-<tr><td>Random Forest</td><td>[__]</td><td>[__]</td><td>[__]</td><td>[__]</td><td>[__]</td></tr>
+<tr><th style="width:30%">Modelo</th><th style="width:14%">Acurácia</th><th style="width:14%">Precisão</th><th style="width:14%">Recall</th><th style="width:12%">F1</th><th style="width:16%">ROC-AUC</th></tr>
+<tr><td>Regressão Logística</td><td>66,3%</td><td>13,8%</td><td>52,2%</td><td>21,8%</td><td>0,649</td></tr>
+<tr><td>Random Forest</td><td>70,8%</td><td>15,4%</td><td>50,1%</td><td>23,6%</td><td>0,659</td></tr>
+<tr><td>Sempre prevê “não”</td><td>91,0%</td><td>0%</td><td>0%</td><td>0%</td><td>0,500</td></tr>
 </table>
-<p class="lead">[Inserir aqui a matriz de confusão e a curva ROC do melhor modelo, e uma frase com a leitura dos números.]</p>
-<aside>Preencher com os valores da tabela de resultados do notebook depois de executá-lo. Comentar o recall da classe “reinterna <30d”, que é a que importa, e comparar com a acurácia do modelo que sempre prevê “não”.</aside>
+<p class="lead">A acurácia engana: prever sempre “não” acerta 91,0%, mas não detecta nenhum reinternado. Por isso o Random Forest foi escolhido pelo F1 e pelo ROC-AUC.</p>
+<aside>Integrante 2. Valores do conjunto de teste, vindos da execução do notebook. Explicar por que a linha “Sempre prevê não” tem a maior acurácia e ainda assim é inútil. A Regressão Logística tem recall um pouco maior (52,2% contra 50,1%), mas o Random Forest ganha em acurácia, precisão, F1 e ROC-AUC.</aside>
 </section>
