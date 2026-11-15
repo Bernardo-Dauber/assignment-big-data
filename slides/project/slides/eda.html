@@ -1,0 +1,17 @@
+<section id="eda">
+<p class="eyebrow">ANÁLISE EXPLORATÓRIA</p>
+<h2>O alvo é desbalanceado: poucos pacientes voltam em menos de 30 dias</h2>
+<div class="split">
+<div class="bars">
+<div class="bar"><p class="bl">Não reinterna</p><div class="track"><div class="fill" style="width:280px"></div></div><p class="bv">≈ 54%</p></div>
+<div class="bar"><p class="bl">Após 30 dias</p><div class="track"><div class="fill" style="width:182px"></div></div><p class="bv">≈ 35%</p></div>
+<div class="bar"><p class="bl">Em menos de 30 dias</p><div class="track"><div class="fill hot" style="width:58px"></div></div><p class="bv">≈ 11%</p></div>
+</div>
+<ul class="points">
+<li>Acertar “não reinterna” para todos já dá cerca de 90% de acurácia</li>
+<li>Variáveis de contagem são muito assimétricas e têm outliers</li>
+<li>Por isso olhamos recall, F1 e ROC-AUC, não só acurácia</li>
+</ul>
+</div>
+<aside>Integrante 1. Mostrar no notebook os gráficos de distribuição do alvo, histogramas e boxplots. Os percentuais são aproximados para o dataset completo; confira com a saída do notebook e atualize, se quiser, com os valores pós-limpeza.</aside>
+</section>

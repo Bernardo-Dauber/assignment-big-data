@@ -1,0 +1,19 @@
+{
+  "v": 5,
+  "createdOnFiles": { "v": 1, "at": "2026-11-15T14:10:00Z" },
+  "lists": "css",
+  "format": { "v": 1, "shared": ["project/deck.css"] },
+  "title": "Reinternação em Diabetes – Slides",
+  "order": ["cover", "problema", "dataset", "eda", "limpeza", "features", "pipeline", "modelos", "resultados", "critica", "proximos"],
+  "sections": {
+    "s1": { "description": "Problema, contexto e dados.", "start": "cover" },
+    "s2": { "description": "Limpeza e preparação dos dados.", "start": "limpeza" },
+    "s3": { "description": "Pipeline, modelos e resultados.", "start": "pipeline" },
+    "s4": { "description": "Análise crítica e próximos passos.", "start": "critica" }
+  },
+  "faces": {
+    "space-grotesk": { "family": "Space Grotesk", "href": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=Inter:wght@400;600&display=swap" },
+    "inter": { "family": "Inter", "href": "https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" }
+  },
+  "designSystems": []
+}

@@ -1,0 +1,12 @@
+<section id="pipeline">
+<p class="eyebrow">PIPELINE DE MODELAGEM</p>
+<h2>Do dado bruto ao modelo em quatro passos</h2>
+<div class="steps">
+<div class="step"><p class="sn">1</p><h3>Divisão</h3><p class="ct">80% treino, 20% teste, estratificada pelo alvo.</p></div>
+<div class="step"><p class="sn">2</p><h3>Transformação</h3><p class="ct">StandardScaler nas numéricas e OneHotEncoder nas categóricas.</p></div>
+<div class="step"><p class="sn">3</p><h3>Treino</h3><p class="ct">Regressão Logística e Random Forest.</p></div>
+<div class="step"><p class="sn">4</p><h3>Avaliação</h3><p class="ct">Recall, precisão, F1, ROC-AUC e matriz de confusão.</p></div>
+</div>
+<p class="lead">Tudo dentro de um Pipeline do scikit-learn: o pré-processamento é ajustado só no treino, o que evita vazamento para o teste.</p>
+<aside>Integrante 2. Destacar que o split vem antes de qualquer ajuste de escala ou codificação e que stratify mantém a proporção da classe rara.</aside>
+</section>

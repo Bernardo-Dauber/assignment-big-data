@@ -1,0 +1,14 @@
+<section id="limpeza">
+<p class="eyebrow">LIMPEZA E FALTANTES</p>
+<h2>Cada problema recebeu uma decisão justificada</h2>
+<table class="tbl">
+<tr><th style="width:42%">Problema</th><th style="width:58%">Decisão</th></tr>
+<tr><td>“?” usado como ausência</td><td>Convertido em NaN</td></tr>
+<tr><td>weight com cerca de 97% faltante</td><td>Coluna removida</td></tr>
+<tr><td>Faltantes em convênio, especialidade, raça e diagnósticos</td><td>Categoria “Desconhecido”</td></tr>
+<tr><td>Gênero “Unknown/Invalid”</td><td>Linhas removidas</td></tr>
+<tr><td>Óbito e hospice na alta</td><td>Removidos: não podem ser reinternados</td></tr>
+<tr><td>Várias internações do mesmo paciente</td><td>Mantida só a primeira, para evitar vazamento</td></tr>
+</table>
+<aside>Integrante 1 conclui a primeira metade aqui. Mostrar as células de limpeza do notebook e o antes e depois do número de linhas. Justificar por que não imputar weight.</aside>
+</section>
