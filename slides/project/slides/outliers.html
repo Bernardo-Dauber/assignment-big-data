@@ -1,13 +1,10 @@
 <section id="outliers" class="tint">
 <p class="eyebrow">ANÁLISE EXPLORATÓRIA</p>
-<h2>Os boxplots mostram muitos outliers</h2>
-<div class="split">
-<img src="/_blob/7a2b47168ef3d76525641968f373e4db" alt="Boxplots das oito variáveis numéricas" style="width:1000px; height:432px; object-fit:contain; background:#FFFFFF; border-radius:12px">
-<ul class="points">
-<li>Medicamentos e exames laboratoriais têm muitos valores altos</li>
-<li>Em number_inpatient, number_outpatient e number_emergency, quase todos ficam em zero e o resto aparece como outlier</li>
-<li>Mantivemos os outliers: são casos clínicos reais, não erros</li>
-</ul>
+<h2>A maioria dos valores é baixa, mas há extremos muito altos</h2>
+<div class="panel">
+<div class="rr"><p class="rl">time_in_hospital</p><div class="rt"><div class="rb" style="left:14.3%; width:28.6%"></div><div class="rm" style="left:28.6%"></div><div class="rx"></div></div><p class="rv">2 a 6 · mediana 4 · máx. 14</p></div><div class="rr"><p class="rl">num_lab_procedures</p><div class="rt"><div class="rb" style="left:23.4%; width:19.7%"></div><div class="rm" style="left:33.3%"></div><div class="rx"></div></div><p class="rv">31 a 57 · mediana 44 · máx. 132</p></div><div class="rr"><p class="rl">num_medications</p><div class="rt"><div class="rb" style="left:12.4%; width:12.4%"></div><div class="rm" style="left:18.6%"></div><div class="rx"></div></div><p class="rv">10 a 20 · mediana 15 · máx. 81</p></div><div class="rr"><p class="rl">number_inpatient</p><div class="rt"><div class="rb" style="left:0.0%; width:4.7%"></div><div class="rm" style="left:0.0%"></div><div class="rx"></div></div><p class="rv">0 a 1 · mediana 0 · máx. 21</p></div><div class="rr"><p class="rl">number_outpatient</p><div class="rt"><div class="rb" style="left:0.0%; width:0.8%"></div><div class="rm" style="left:0.0%"></div><div class="rx"></div></div><p class="rv">0 a 0 · mediana 0 · máx. 42</p></div><div class="rr"><p class="rl">number_emergency</p><div class="rt"><div class="rb" style="left:0.0%; width:0.8%"></div><div class="rm" style="left:0.0%"></div><div class="rx"></div></div><p class="rv">0 a 0 · mediana 0 · máx. 76</p></div>
+<p class="legend">Barra verde: Q1 a Q3. Traço escuro: mediana. Marca laranja: valor máximo (cada linha na sua escala).</p>
 </div>
-<aside>Integrante 1. Seção 6.3 do notebook. A decisão de manter os outliers é nossa: valores altos de internações prévias, por exemplo, são justamente os pacientes de maior risco. Se vocês tiverem feito outro tratamento, ajustem este texto.</aside>
+<p class="src">Fonte: boxplots 6.3 do notebook, redesenhados para o slide. Valores aproximados, lidos do gráfico original.</p>
+<aside>Integrante 1. Seção 6.3 do notebook. Em number_inpatient, number_outpatient e number_emergency a mediana é zero, mas o máximo chega a 21, 42 e 76. Mantivemos os outliers: são casos clínicos reais, e valores altos de internações prévias são justamente os pacientes de maior risco. Se vocês trataram de outro jeito, ajustem o texto. Valores aproximados, lidos do gráfico.</aside>
 </section>

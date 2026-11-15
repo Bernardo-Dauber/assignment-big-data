@@ -1,13 +1,10 @@
 <section id="distribuicoes">
 <p class="eyebrow">ANÁLISE EXPLORATÓRIA</p>
 <h2>As variáveis de contagem são muito assimétricas</h2>
-<div class="split">
-<img src="/_blob/b760c147bd76309da9e38824098cef23" alt="Histogramas das oito variáveis numéricas" style="width:900px; height:531px; object-fit:contain; background:#FFFFFF; border-radius:12px">
-<ul class="points">
-<li>number_emergency, number_outpatient e number_inpatient se concentram em zero</li>
-<li>time_in_hospital e num_medications têm cauda longa à direita</li>
-<li>num_lab_procedures é a mais próxima de uma distribuição simétrica</li>
-</ul>
+<div class="cards">
+<div class="panel"><h3>Dias de internação (mil pacientes)</h3><div class="vc"><div class="col"><p class="v">14,2</p><div class="b" style="height:192px"></div><p class="k">1</p></div><div class="col"><p class="v">17,2</p><div class="b" style="height:232px"></div><p class="k">2</p></div><div class="col"><p class="v">17,7</p><div class="b" style="height:239px"></div><p class="k">3</p></div><div class="col"><p class="v">13,9</p><div class="b" style="height:188px"></div><p class="k">4</p></div><div class="col"><p class="v">9,9</p><div class="b" style="height:134px"></div><p class="k">5</p></div><div class="col"><p class="v">7,5</p><div class="b" style="height:101px"></div><p class="k">6</p></div><div class="col"><p class="v">5,9</p><div class="b" style="height:80px"></div><p class="k">7</p></div><div class="col"><p class="v">4,3</p><div class="b" style="height:58px"></div><p class="k">8</p></div><div class="col"><p class="v">3</p><div class="b" style="height:40px"></div><p class="k">9</p></div><div class="col"><p class="v">2,3</p><div class="b" style="height:31px"></div><p class="k">10</p></div><div class="col"><p class="v">1,8</p><div class="b" style="height:24px"></div><p class="k">11</p></div><div class="col"><p class="v">1,4</p><div class="b" style="height:19px"></div><p class="k">12</p></div><div class="col"><p class="v">1,2</p><div class="b" style="height:16px"></div><p class="k">13</p></div><div class="col"><p class="v">1</p><div class="b" style="height:14px"></div><p class="k">14</p></div></div></div>
+<div class="panel"><h3>Pacientes com valor zero na variável</h3><div class="vc"><div class="col"><p class="v">98%</p><div class="b hot" style="height:265px"></div><p class="k">Emergência</p></div><div class="col"><p class="v">92%</p><div class="b hot" style="height:248px"></div><p class="k">Ambulatorial</p></div><div class="col"><p class="v">66%</p><div class="b" style="height:178px"></div><p class="k">Internações</p></div><div class="col"><p class="v">46%</p><div class="b" style="height:124px"></div><p class="k">Procedimentos</p></div></div></div>
 </div>
-<aside>Integrante 1. Seção 6.2 do notebook. A maioria dos pacientes tem poucas ou nenhuma internação, consulta ou emergência no último ano, e uma minoria tem valores altos. Isso motiva a padronização dos números e o uso de um modelo que lide bem com assimetria.</aside>
+<p class="src">Fonte: histogramas 6.2 do notebook, redesenhados para o slide. Valores aproximados, lidos do gráfico original.</p>
+<aside>Integrante 1. Seção 6.2 do notebook. Cerca de 98% dos pacientes não tiveram visita à emergência e cerca de 92% não tiveram consulta ambulatorial no último ano, e a maioria também não tem internação prévia. Já o tempo de internação tem cauda longa à direita. Isso motiva a padronização e o uso de um modelo que lide bem com assimetria. Percentuais aproximados, estimados dos histogramas.</aside>
 </section>

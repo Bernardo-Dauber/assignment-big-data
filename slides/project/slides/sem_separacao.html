@@ -1,7 +1,12 @@
 <section id="sem_separacao" class="tint">
 <p class="eyebrow">ANÁLISE EXPLORATÓRIA</p>
-<h2>Nenhuma variável sozinha separa as duas classes</h2>
-<img src="/_blob/daba4994af0cd4e13d7c889560bb2448" alt="Tempo de internação por classe e dispersão de medicamentos contra exames, colorida pelo alvo" style="width:1300px; height:389px; object-fit:contain; background:#FFFFFF; border-radius:12px">
-<p class="lead">O tempo de internação tem a mesma distribuição nas duas classes, e os pontos reinternados se misturam aos demais. Isso ajuda a explicar o desempenho moderado do modelo.</p>
-<aside>Integrante 1. Seção 6.5 do notebook. Fazer a ponte com os resultados: se as variáveis isoladas já não separam bem as classes, é esperado um ROC-AUC de 0,659 e não de 0,9.</aside>
+<h2>O tempo de internação é igual nas duas classes</h2>
+<div class="panel">
+<div class="rr"><p class="rl">Não reinternado (0)</p><div class="rt"><div class="rb" style="left:14.3%; width:28.6%"></div><div class="rm" style="left:28.6%"></div><div class="rx"></div></div><p class="rv">2 a 6 · mediana 4 · máx. 14</p></div>
+<div class="rr"><p class="rl">Reinternado em menos de 30 dias (1)</p><div class="rt"><div class="rb" style="left:14.3%; width:28.6%"></div><div class="rm" style="left:28.6%"></div><div class="rx"></div></div><p class="rv">2 a 6 · mediana 4 · máx. 14</p></div>
+<p class="legend">Dias de internação. Barra verde: Q1 a Q3. Traço escuro: mediana. Marca laranja: máximo.</p>
+</div>
+<p class="lead">Mediana e quartis são iguais nas duas classes. No gráfico de dispersão de medicamentos contra exames, os reinternados também se misturam aos demais. Nenhuma variável sozinha separa as classes, o que ajuda a explicar o desempenho moderado do modelo.</p>
+<p class="src">Fonte: gráfico 6.5 do notebook, redesenhado para o slide. Valores aproximados, lidos do gráfico original.</p>
+<aside>Integrante 1. Seção 6.5 do notebook. Mostrar o gráfico de dispersão no notebook, que não foi redesenhado aqui. Fazer a ponte com os resultados: se as variáveis isoladas não separam bem as classes, é esperado um ROC-AUC de 0,659 e não de 0,9.</aside>
 </section>

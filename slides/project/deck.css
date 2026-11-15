@@ -66,3 +66,21 @@ section.dark .small { color: #BFC8D8; }
 .step .sn { font-size: 28px; font-weight: 600; color: #0B7A75; }
 .step h3 { font-size: 36px; }
 .step .ct { font-size: 28px; line-height: 1.4; color: #4A5568; }
+
+.panel { flex: 1; background: #FFFFFF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 20px; }
+.panel h3 { font-size: 30px; }
+.vc { display: flex; align-items: flex-end; gap: 10px; height: 330px; }
+.vc .col { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; }
+.vc .v { font-size: 20px; font-weight: 600; color: #14213D; }
+.vc .b { width: 100%; background: #0B7A75; border-radius: 6px 6px 0 0; }
+.vc .b.hot { background: #E07A1F; }
+.vc .k { font-size: 20px; color: #4A5568; }
+.src { font-size: 22px; color: #6B7788; }
+.rr { display: flex; align-items: center; gap: 24px; }
+.rr .rl { width: 420px; font-size: 26px; color: #14213D; }
+.rr .rt { position: relative; width: 640px; height: 36px; background: #D5DDE4; border-radius: 8px; }
+.rr .rb { position: absolute; top: 0; height: 36px; background: #0B7A75; border-radius: 4px; }
+.rr .rm { position: absolute; top: -6px; width: 5px; height: 48px; background: #14213D; }
+.rr .rx { position: absolute; right: 0; top: 0; height: 36px; width: 8px; background: #E07A1F; border-radius: 0 8px 8px 0; }
+.rr .rv { white-space: nowrap; font-size: 24px; color: #4A5568; }
+.legend { font-size: 24px; color: #4A5568; }
