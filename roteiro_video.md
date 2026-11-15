@@ -116,7 +116,7 @@ Estatísticas sobre as 101.766 internações originais (saídas da seção 4 do 
 - Troca vantajosa do Random Forest: 653 alarmes falsos a menos (4.114 para 3.461) ao custo de 26 reinternados detectados (656 para 630).
 - Precisão de 15,4% (630 de 4.091 alertas): para cada paciente de risco identificado, 5 a 6 recebem acompanhamento sem precisar.
 - O falso negativo é o erro mais caro em saúde: 627 reinternados ficam sem alerta.
-- Atenção: a observação da seção 15 do notebook cita 3.440 falsos positivos, mas a figura da matriz mostra 3.461 (consistente com a precisão de 0,154). Corrijam o texto do notebook para 3.461.
+- Nota: o texto da seção 15 do notebook já foi corrigido para 3.461 falsos positivos, o valor da figura da matriz (consistente com a precisão de 0,154).
 
 ## 12. Variáveis importantes (Random Forest)
 - Em ordem aproximada, lida do gráfico: alta para casa (`discharge_disposition_id_1`, cerca de 0,09), `number_inpatient` (0,075), `time_in_hospital` (0,057), `num_medications` (0,055), `num_lab_procedures` (0,055), alta tipo 22 (0,05), `age` (0,045) e `number_diagnoses` (0,036).
@@ -137,7 +137,7 @@ Estatísticas sobre as 101.766 internações originais (saídas da seção 4 do 
 ## Checklist de gravação
 
 - [ ] Notebook executado do zero (reiniciar e executar tudo), com as saídas visíveis, e números conferidos com os slides.
-- [ ] Corrigir na seção 15 do notebook a observação de falsos positivos (3.461) e, na seção 8, a observação de faltantes restantes: a saída mostra 123.779 (por causa de `max_glu_serum` e `A1Cresult`, que ficam como nulos, tratados como "exame não feito" pelo One-Hot), mas o texto diz 0.
+- [x] Textos do notebook corrigidos (falsos positivos 3.461, faltantes restantes 123.779, taxa de 8,5% para 47,8%). Se usarem o Colab, reenviem este `.ipynb` ou copiem as três observações.
 - [ ] Completar o nome do integrante 2 na capa dos slides e na primeira célula do notebook.
 - [ ] Ensaio cronometrado: o limite é 10 minutos.
 - [ ] Zoom do navegador ampliado e menu lateral do Colab recolhido, para o código ficar legível.
