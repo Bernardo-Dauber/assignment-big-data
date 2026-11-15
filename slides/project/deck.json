@@ -1,17 +1,17 @@
 {
   "v": 5,
-  "createdOnFiles": { "v": 1, "at": "2026-11-15T14:10:00Z" },
+  "createdOnFiles": { "v": 1, "at": "2026-11-15T18:40:00Z" },
   "lists": "css",
   "format": { "v": 1, "shared": ["project/deck.css"] },
-  "title": "Reinternação em Diabetes – Slides",
-  "order": ["cover", "problema", "eda", "padroes", "preparo", "resultados", "matriz", "variaveis", "critica"],
+  "title": "Reinternação em Diabetes – Dataset e Modelos",
+  "order": ["cover", "dataset", "perfil", "faltantes", "alvo", "previas", "fracos", "preparo", "modelos", "resultados", "matriz", "importancia", "conclusoes"],
   "sections": {
-    "s1": { "description": "Problema, dados e exploração.", "start": "cover" },
-    "s2": { "description": "Preparo, modelos e resultados.", "start": "preparo" },
-    "s3": { "description": "Análise crítica e próximos passos.", "start": "critica" }
+    "s1": { "description": "O dataset escolhido e o que os dados mostram.", "start": "cover" },
+    "s2": { "description": "Preparo dos dados e os dois modelos.", "start": "preparo" },
+    "s3": { "description": "Comparação dos resultados e conclusões.", "start": "resultados" }
   },
   "faces": {
-    "space-grotesk": { "family": "Space Grotesk", "href": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=Inter:wght@400;600&display=swap" },
+    "space-grotesk": { "family": "Space Grotesk", "href": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&display=swap" },
     "inter": { "family": "Inter", "href": "https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" }
   },
   "designSystems": []

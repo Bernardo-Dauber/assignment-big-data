@@ -1,0 +1,34 @@
+<section id="fracos">
+<p class="eyebrow">INSIGHT 2 · SINAIS FRACOS</p>
+<h2>Os outros sinais são fracos, um a um</h2>
+<div class="split" style="gap:32px">
+<div class="panel" style="width:800px">
+<p class="ph">% reinternados em menos de 30 dias, por idade (anos)</p>
+<div class="vc">
+<div class="vcol"><p class="v">1,8</p><div class="b" style="height:22px"></div><p class="k">0</p></div>
+<div class="vcol"><p class="v">5,8</p><div class="b" style="height:70px"></div><p class="k">10</p></div>
+<div class="vcol"><p class="v">14,2</p><div class="b hot" style="height:170px"></div><p class="k">20</p></div>
+<div class="vcol"><p class="v">11,2</p><div class="b" style="height:134px"></div><p class="k">30</p></div>
+<div class="vcol"><p class="v">10,6</p><div class="b" style="height:127px"></div><p class="k">40</p></div>
+<div class="vcol"><p class="v">9,7</p><div class="b" style="height:116px"></div><p class="k">50</p></div>
+<div class="vcol"><p class="v">11,1</p><div class="b" style="height:133px"></div><p class="k">60</p></div>
+<div class="vcol"><p class="v">11,7</p><div class="b" style="height:140px"></div><p class="k">70</p></div>
+<div class="vcol"><p class="v">12,0</p><div class="b" style="height:144px"></div><p class="k">80</p></div>
+<div class="vcol"><p class="v">11,1</p><div class="b" style="height:133px"></div><p class="k">90</p></div>
+</div>
+<p class="small">Quase tudo entre 10% e 12%; pico aos 20 a 30 anos.</p>
+</div>
+<div class="panel" style="width:832px">
+<p class="ph">Correlação com o alvo (valor absoluto)</p>
+<div class="hb"><p class="hl" style="width:320px">Internações prévias</p><div class="ht" style="width:330px"><div class="hf hot" style="width:327px"></div></div><p class="hv">0,17</p></div>
+<div class="hb"><p class="hl" style="width:320px">Visitas à emergência</p><div class="ht" style="width:330px"><div class="hf" style="width:116px"></div></div><p class="hv">0,06</p></div>
+<div class="hb"><p class="hl" style="width:320px">Nº de diagnósticos</p><div class="ht" style="width:330px"><div class="hf" style="width:97px"></div></div><p class="hv">0,05</p></div>
+<div class="hb"><p class="hl" style="width:320px">Tempo de internação</p><div class="ht" style="width:330px"><div class="hf" style="width:78px"></div></div><p class="hv">0,04</p></div>
+<div class="hb"><p class="hl" style="width:320px">Nº de medicamentos</p><div class="ht" style="width:330px"><div class="hf" style="width:78px"></div></div><p class="hv">0,04</p></div>
+<div class="hb"><p class="hl" style="width:320px">Visitas ambulatoriais</p><div class="ht" style="width:330px"><div class="hf" style="width:39px"></div></div><p class="hv">0,02</p></div>
+</div>
+</div>
+<div class="callout">Tempo de internação: mediana de 4 dias nas duas classes. É preciso combinar sinais.</div>
+<p class="src">Fonte: notebook, seções 6.4 a 6.6 · valores de idade lidos do gráfico</p>
+<aside>Por idade a variação é pequena: ficamos em torno de 10 a 12% quase o tempo todo, com taxa baixa até 20 anos (1,8% e 5,8%) e pico em 20 a 30 anos (14,2%). Na matriz de correlação, o alvo tem correlação de apenas 0,17 com number_inpatient e no máximo 0,06 com as demais; tempo de internação (0,04) e número de medicamentos (0,04) praticamente não explicam. O boxplot do tempo de internação mostra a mesma mediana (4 dias) para quem volta e para quem não volta. A correlação mais forte entre as próprias variáveis é 0,47, entre num_medications e time_in_hospital. Conclusão: nenhum sinal isolado resolve o problema, o que justifica usar modelos que combinam muitas variáveis.</aside>
+</section>

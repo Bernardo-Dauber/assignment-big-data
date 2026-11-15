@@ -1,0 +1,14 @@
+<section id="conclusoes" class="dark">
+<p class="eyebrow">CONCLUSÕES</p>
+<h2>O que os dados e os modelos nos dizem</h2>
+<div class="dcards">
+<div class="dcard"><p class="dn">1</p><p class="dt">O histórico é o melhor sinal</p><p class="dx">Quem tem 8 ou mais internações prévias volta 5,6× mais, e esse é o 2º sinal do Random Forest.</p></div>
+<div class="dcard"><p class="dn">2</p><p class="dt">Random Forest ganha, mas pouco</p><p class="dx">ROC-AUC de 0,659 contra 0,649: a complexidade extra traz um ganho modesto.</p></div>
+<div class="dcard"><p class="dn">3</p><p class="dt">A acurácia engana</p><p class="dx">Prever sempre “não” dá 91%. Com recall de cerca de 50% e precisão de cerca de 15%, o modelo apoia a triagem, não decide sozinho.</p></div>
+</div>
+<div class="nx">
+<div class="nxc"><p class="nxt">PRÓXIMOS PASSOS</p><p class="nxx">Ajuste do limiar de decisão, validação cruzada com busca de hiperparâmetros, Gradient Boosting e SMOTE.</p></div>
+<div class="nxc"><p class="nxt">LIMITAÇÕES</p><p class="nxx">Dados de 1999 a 2008, só dos EUA, sem fatores sociais ou de adesão; cautela ética ao usar raça e gênero.</p></div>
+</div>
+<aside>Fechamento. Três mensagens: (1) o histórico recente de internações é o sinal mais forte, tanto na análise exploratória (8,5% para 47,8%) quanto no modelo; (2) o Random Forest foi o melhor modelo, mas o ganho sobre a Regressão Logística é pequeno (ROC-AUC 0,659 contra 0,649), então os dados da internação sozinhos explicam só parte do problema; (3) a acurácia engana, e com recall de cerca de 50% e precisão de cerca de 15% o modelo serve como apoio à triagem. Próximos passos: ajustar o limiar de decisão (em saúde, perder um paciente de risco custa mais que um alarme falso), fazer busca de hiperparâmetros com validação cruzada, testar Gradient Boosting e SMOTE, e enriquecer os atributos. Limitações: dados de 1999 a 2008, só hospitais dos EUA, sem fatores socioeconômicos nem adesão ao tratamento; usar raça e gênero em modelos clínicos exige cautela para não discriminar.</aside>
+</section>

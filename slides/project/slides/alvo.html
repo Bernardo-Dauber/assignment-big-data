@@ -1,0 +1,20 @@
+<section id="alvo">
+<p class="eyebrow">A VARIÁVEL-ALVO</p>
+<h2>Só 11% voltam ao hospital em menos de 30 dias</h2>
+<div class="split">
+<div class="panel" style="width:960px">
+<p class="ph">Reinternação (coluna readmitted), % das 101.766 internações</p>
+<div class="hb"><p class="hl" style="width:300px">Não reinternou</p><div class="ht"><div class="hf" style="width:280px"></div></div><p class="hv">53,9%</p></div>
+<div class="hb"><p class="hl" style="width:300px">Depois de 30 dias</p><div class="ht"><div class="hf" style="width:182px"></div></div><p class="hv">34,9%</p></div>
+<div class="hb"><p class="hl" style="width:300px">Em menos de 30 dias</p><div class="ht"><div class="hf hot" style="width:58px"></div></div><p class="hv">11,2%</p></div>
+<p class="small">Alvo binário: 1 = menos de 30 dias; 0 = todos os outros casos. Depois da limpeza, 9,0% de positivos (1.257 de 13.998 no teste).</p>
+</div>
+<div class="col" style="width:640px">
+<p class="bignum hot">91,0%</p>
+<p class="bigl">é a acurácia de um modelo que sempre prevê “não”, e ele não detecta nenhum reinternado.</p>
+<div class="it hot"><b>Por isso</b> avaliamos os modelos por recall, precisão, F1 e ROC-AUC, não só por acurácia.</div>
+</div>
+</div>
+<p class="src">Fonte: saída do notebook, seções 5.1 e 15</p>
+<aside>A coluna readmitted tem três valores: 54.864 “NO” (53,9%), 35.545 “>30” (34,9%) e 11.357 “<30” (11,2%). Transformamos em binário: 1 se reinternado em menos de 30 dias, 0 caso contrário, que é a métrica usada por hospitais. Depois da limpeza (remoção de óbitos/hospice, gênero inválido e repetições) a taxa de positivos cai para 8,98%. No teste são 1.257 positivos em 13.998 linhas. Consequência: um modelo que sempre diz “não” acerta 91,0% e não serve para nada. Por isso o foco em recall, precisão, F1 e ROC-AUC.</aside>
+</section>

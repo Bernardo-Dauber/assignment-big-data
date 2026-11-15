@@ -1,12 +1,23 @@
 <section id="resultados">
 <p class="eyebrow">RESULTADOS NO CONJUNTO DE TESTE</p>
-<h2>O Random Forest foi o melhor modelo</h2>
-<table class="tbl">
-<tr><th style="width:30%">Modelo</th><th style="width:14%">Acurácia</th><th style="width:14%">Precisão</th><th style="width:14%">Recall</th><th style="width:12%">F1</th><th style="width:16%">ROC-AUC</th></tr>
-<tr><td>Regressão Logística</td><td>66,3%</td><td>13,8%</td><td>52,2%</td><td>21,8%</td><td>0,649</td></tr>
-<tr><td>Random Forest</td><td>70,8%</td><td>15,4%</td><td>50,1%</td><td>23,6%</td><td>0,659</td></tr>
-<tr><td>Sempre prevê “não”</td><td>91,0%</td><td>0%</td><td>0%</td><td>0%</td><td>0,500</td></tr>
-</table>
-<p class="lead">A acurácia engana: prever sempre “não” acerta 91,0%, mas não detecta nenhum reinternado. Por isso o Random Forest foi escolhido pelo F1 e pelo ROC-AUC.</p>
-<aside>Integrante 2. Valores do conjunto de teste, vindos da execução do notebook. Explicar por que a linha “Sempre prevê não” tem a maior acurácia e ainda assim é inútil. A Regressão Logística tem recall um pouco maior (52,2% contra 50,1%), mas o Random Forest ganha em acurácia, precisão, F1 e ROC-AUC.</aside>
+<h2>Random Forest vence em 4 de 5 métricas</h2>
+<div class="split">
+<div class="panel" style="width:1060px">
+<div class="legend"><div class="lg"><div class="sw blue"></div><p>Regressão Logística</p></div><div class="lg"><div class="sw hot"></div><p>Random Forest</p></div></div>
+<div class="vc">
+<div class="vcol"><div class="pair"><div class="pb"><p class="v">66,3%</p><div class="b blue" style="height:309px"></div></div><div class="pb"><p class="v">70,8%</p><div class="b hot" style="height:330px"></div></div></div><p class="k">Acurácia</p></div>
+<div class="vcol"><div class="pair"><div class="pb"><p class="v">13,8%</p><div class="b blue" style="height:64px"></div></div><div class="pb"><p class="v">15,4%</p><div class="b hot" style="height:72px"></div></div></div><p class="k">Precisão</p></div>
+<div class="vcol"><div class="pair"><div class="pb"><p class="v">52,2%</p><div class="b blue" style="height:243px"></div></div><div class="pb"><p class="v">50,1%</p><div class="b hot" style="height:233px"></div></div></div><p class="k">Recall</p></div>
+<div class="vcol"><div class="pair"><div class="pb"><p class="v">21,8%</p><div class="b blue" style="height:102px"></div></div><div class="pb"><p class="v">23,6%</p><div class="b hot" style="height:110px"></div></div></div><p class="k">F1</p></div>
+<div class="vcol"><div class="pair"><div class="pb"><p class="v">0,649</p><div class="b blue" style="height:302px"></div></div><div class="pb"><p class="v">0,659</p><div class="b hot" style="height:307px"></div></div></div><p class="k">ROC-AUC</p></div>
+</div>
+</div>
+<div class="ins" style="width:540px">
+<div class="it hot"><b>Random Forest:</b> melhor em acurácia, precisão, F1 e ROC-AUC.</div>
+<div class="it"><b>Regressão Logística:</b> detecta um pouco mais, com recall de 52,2% contra 50,1%.</div>
+<div class="it"><b>Ganho pequeno:</b> a ROC-AUC sobe só 0,010, e o desempenho é moderado nos dois.</div>
+</div>
+</div>
+<p class="src">Fonte: notebook, seção 15 · ROC-AUC na escala 0 a 1, com barras proporcionais</p>
+<aside>Resultados no conjunto de teste (13.998 internações). Regressão Logística: acurácia 66,3%, precisão 13,8%, recall 52,2%, F1 21,8%, ROC-AUC 0,649. Random Forest: acurácia 70,8%, precisão 15,4%, recall 50,1%, F1 23,6%, ROC-AUC 0,659. O Random Forest ganha em quatro das cinco métricas; a Regressão Logística tem recall dois pontos maior. A diferença de ROC-AUC é de apenas 0,010, então a complexidade extra traz ganho modesto. Referência: o modelo que sempre prevê “não” tem 91,0% de acurácia, 0% de recall e ROC-AUC 0,5; ambos os modelos ficam acima do acaso (0,5) e longe do ideal (1,0).</aside>
 </section>

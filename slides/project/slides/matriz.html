@@ -1,12 +1,37 @@
-<section id="matriz" class="tint">
-<p class="eyebrow">MELHOR MODELO: RANDOM FOREST</p>
-<h2>Matriz de confusão no teste</h2>
-<div class="cards">
-<div class="card cool"><p class="tag">VERDADEIRO NEGATIVO</p><h3>9.301</h3><p class="ct">Previu não e era não</p></div>
-<div class="card hot"><p class="tag">FALSO POSITIVO</p><h3>3.440</h3><p class="ct">Alarme desnecessário</p></div>
-<div class="card hot"><p class="tag">FALSO NEGATIVO</p><h3>627</h3><p class="ct">Risco não identificado</p></div>
-<div class="card cool"><p class="tag">VERDADEIRO POSITIVO</p><h3>630</h3><p class="ct">Reinternados detectados</p></div>
+<section id="matriz">
+<p class="eyebrow">ONDE CADA MODELO ERRA</p>
+<h2>Random Forest gera menos alarmes falsos</h2>
+<div class="split" style="gap:32px">
+<div class="panel" style="width:540px">
+<p class="ph">Regressão Logística</p>
+<div class="cm">
+<p class="ch"></p><p class="ch">Previu “não”</p><p class="ch">Previu “sim”</p>
+<p class="cr">Era “não”</p>
+<div class="cc ok"><p class="cn">8.627</p><p class="cd">verdadeiro negativo</p></div>
+<div class="cc"><p class="cn">4.114</p><p class="cd">falso positivo</p></div>
+<p class="cr">Era “sim”</p>
+<div class="cc"><p class="cn">601</p><p class="cd">falso negativo</p></div>
+<div class="cc pos"><p class="cn">656</p><p class="cd">verdadeiro positivo</p></div>
 </div>
-<p class="lead">O modelo detecta cerca de metade dos reinternados (recall de 50,1%). Só 15,4% dos alertas estão certos: para cada paciente de risco identificado, 5 a 6 recebem acompanhamento sem precisar.</p>
-<aside>Integrante 2. Ler a matriz da esquerda para a direita. Destacar que o falso negativo é o erro mais caro em saúde (627 pacientes de risco não identificados) e que o custo do falso positivo é um acompanhamento extra.</aside>
+</div>
+<div class="panel" style="width:540px">
+<p class="ph">Random Forest</p>
+<div class="cm">
+<p class="ch"></p><p class="ch">Previu “não”</p><p class="ch">Previu “sim”</p>
+<p class="cr">Era “não”</p>
+<div class="cc ok"><p class="cn">9.280</p><p class="cd">verdadeiro negativo</p></div>
+<div class="cc"><p class="cn">3.461</p><p class="cd">falso positivo</p></div>
+<p class="cr">Era “sim”</p>
+<div class="cc"><p class="cn">627</p><p class="cd">falso negativo</p></div>
+<div class="cc pos"><p class="cn">630</p><p class="cd">verdadeiro positivo</p></div>
+</div>
+</div>
+<div class="ins" style="width:520px">
+<div class="it hot"><b>Troca vantajosa:</b> 653 alarmes falsos a menos (4.114 para 3.461) ao custo de 26 reinternados detectados (656 para 630).</div>
+<div class="it"><b>Precisão de 15,4%:</b> para cada paciente de risco identificado, 5 a 6 recebem acompanhamento sem precisar.</div>
+<div class="it"><b>Erro mais caro:</b> 627 reinternados ficam sem alerta.</div>
+</div>
+</div>
+<p class="src">Fonte: notebook, seção 15 · conjunto de teste, com 12.741 “não” e 1.257 “sim”</p>
+<aside>Matrizes de confusão no teste (13.998 internações, sendo 1.257 reinternações em menos de 30 dias). Regressão Logística: 8.627 verdadeiros negativos, 4.114 falsos positivos, 601 falsos negativos, 656 verdadeiros positivos. Random Forest: 9.280, 3.461, 627 e 630. Leitura: o Random Forest evita 653 alarmes falsos e perde 26 detecções. Recall de 50,1% (630 de 1.257); precisão de 15,4% (630 de 4.091 alertas), ou seja, para cada paciente de risco identificado, cerca de 5 a 6 recebem acompanhamento sem precisar. Em saúde o falso negativo costuma ser o erro mais caro, então ajustar o limiar de decisão é o primeiro passo para aumentar o recall. Atenção: no notebook, a observação da seção 15 cita 3.440 falsos positivos, mas a figura da matriz mostra 3.461; usamos o valor da figura, que é consistente com a precisão de 0,154.</aside>
 </section>

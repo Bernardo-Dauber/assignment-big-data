@@ -1,0 +1,25 @@
+<section id="importancia">
+<p class="eyebrow">O QUE O RANDOM FOREST USOU</p>
+<h2>Histórico e tipo de alta pesam mais</h2>
+<div class="split">
+<div class="panel" style="width:1050px;gap:14px">
+<p class="ph">Importância das variáveis, Random Forest</p>
+<div class="legend"><div class="lg"><div class="sw hot"></div><p>Tipo de alta</p></div><div class="lg"><div class="sw"></div><p>Histórico e cuidado</p></div></div>
+<div class="hb"><p class="hl" style="width:380px">Alta para casa</p><div class="ht" style="width:470px"><div class="hf hot" style="width:470px"></div></div><p class="hv">0,09</p></div>
+<div class="hb"><p class="hl" style="width:380px">Internações prévias</p><div class="ht" style="width:470px"><div class="hf" style="width:387px"></div></div><p class="hv">0,08</p></div>
+<div class="hb"><p class="hl" style="width:380px">Tempo de internação</p><div class="ht" style="width:470px"><div class="hf" style="width:294px"></div></div><p class="hv">0,06</p></div>
+<div class="hb"><p class="hl" style="width:380px">Nº de medicamentos</p><div class="ht" style="width:470px"><div class="hf" style="width:284px"></div></div><p class="hv">0,06</p></div>
+<div class="hb"><p class="hl" style="width:380px">Exames laboratoriais</p><div class="ht" style="width:470px"><div class="hf" style="width:284px"></div></div><p class="hv">0,06</p></div>
+<div class="hb"><p class="hl" style="width:380px">Alta para reabilitação</p><div class="ht" style="width:470px"><div class="hf hot" style="width:258px"></div></div><p class="hv">0,05</p></div>
+<div class="hb"><p class="hl" style="width:380px">Idade</p><div class="ht" style="width:470px"><div class="hf" style="width:232px"></div></div><p class="hv">0,05</p></div>
+<div class="hb"><p class="hl" style="width:380px">Nº de diagnósticos</p><div class="ht" style="width:470px"><div class="hf" style="width:186px"></div></div><p class="hv">0,04</p></div>
+</div>
+<div class="ins" style="width:550px">
+<div class="it"><b>Confirma a hipótese:</b> histórico recente e complexidade do caso pesam mais.</div>
+<div class="it hot"><b>Internações prévias:</b> 2º lugar no modelo, e já era o maior sinal na análise exploratória.</div>
+<div class="it"><b>Cuidado:</b> a importância mostra o que o modelo usou, não o sentido do efeito.</div>
+</div>
+</div>
+<p class="src">Fonte: notebook, seção 15 · importâncias aproximadas, lidas do gráfico do Random Forest</p>
+<aside>As variáveis mais usadas pelo Random Forest foram o tipo de alta (discharge_disposition_id, em especial alta para casa, código 1), o número de internações prévias (number_inpatient), o tempo de internação, o número de medicamentos e o de exames laboratoriais; em seguida a alta para reabilitação (código 22), a idade e o número de diagnósticos. Isso confirma a hipótese inicial de que o histórico recente de uso do sistema de saúde e a complexidade do caso seriam os principais sinais. Importante: a importância do Random Forest diz quanto o modelo usou cada variável, não se ela aumenta ou reduz o risco. Para afirmar que alta para casa “reduz” o risco seria preciso calcular a taxa de reinternação por tipo de alta. Valores lidos do gráfico do notebook, portanto aproximados.</aside>
+</section>

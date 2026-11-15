@@ -1,0 +1,22 @@
+<section id="faltantes">
+<p class="eyebrow">QUALIDADE DOS DADOS</p>
+<h2>Muitos campos importantes vêm vazios</h2>
+<div class="split">
+<div class="panel" style="width:1000px">
+<p class="ph">Internações sem registro, por coluna (%)</p>
+<div class="hb"><p class="hl" style="width:340px">Peso</p><div class="ht" style="width:480px"><div class="hf hot" style="width:465px"></div></div><p class="hv">96,9%</p></div>
+<div class="hb"><p class="hl" style="width:340px">Glicose sérica (exame não feito)</p><div class="ht" style="width:480px"><div class="hf hot" style="width:455px"></div></div><p class="hv">94,7%</p></div>
+<div class="hb"><p class="hl" style="width:340px">HbA1c (exame não feito)</p><div class="ht" style="width:480px"><div class="hf" style="width:400px"></div></div><p class="hv">83,3%</p></div>
+<div class="hb"><p class="hl" style="width:340px">Especialidade médica</p><div class="ht" style="width:480px"><div class="hf" style="width:236px"></div></div><p class="hv">49,1%</p></div>
+<div class="hb"><p class="hl" style="width:340px">Convênio (payer code)</p><div class="ht" style="width:480px"><div class="hf" style="width:190px"></div></div><p class="hv">39,6%</p></div>
+<div class="hb"><p class="hl" style="width:340px">Raça</p><div class="ht" style="width:480px"><div class="hf" style="width:11px"></div></div><p class="hv">2,2%</p></div>
+</div>
+<div class="ins" style="width:600px">
+<div class="it hot"><b>Peso foi descartado:</b> imputar 97% de dados seria inventar informação.</div>
+<div class="it"><b>Faltante virou categoria:</b> especialidade, convênio, raça e diagnósticos ficaram como “Desconhecido”; exame não feito é uma categoria válida.</div>
+<div class="it"><b>Insight:</b> a HbA1c só foi medida em 16,7% das internações.</div>
+</div>
+</div>
+<p class="src">Contagens sobre as 101.766 internações originais; “?” e valores nulos tratados como faltantes</p>
+<aside>Os faltantes vêm marcados com “?”: peso 96,86%, especialidade médica 49,08%, convênio 39,56%, raça 2,23%. Glicose sérica e HbA1c aparecem como nulos quando o exame não foi realizado (apenas 5.346 e 17.018 registros preenchidos, ou seja, 5,3% e 16,7%). Decisão: remover a coluna peso; preencher as demais com “Desconhecido”; manter “exame não realizado” como categoria, já que a ausência do exame também pode ser informativa. Insight para comentar: um exame tão relevante para o diabetes quanto a HbA1c foi registrado em apenas uma a cada seis internações.</aside>
+</section>

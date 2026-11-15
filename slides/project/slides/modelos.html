@@ -1,0 +1,22 @@
+<section id="modelos">
+<p class="eyebrow">OS DOIS MODELOS</p>
+<h2>Dois modelos: um simples, um flexível</h2>
+<div class="mcards">
+<div class="mcard lr">
+<p class="mt">BASELINE LINEAR</p>
+<h3>Regressão Logística</h3>
+<p class="mx" style="color:#4A5568">Soma ponderada das variáveis padronizadas, convertida em probabilidade.</p>
+<div class="mb"><p class="ml">POR QUE ESCOLHEMOS</p><p class="mx">Baseline interpretável: mostra se um modelo mais complexo realmente compensa.</p></div>
+<div class="mb"><p class="ml">LIMITAÇÃO</p><p class="mx">Só enxerga relações lineares entre as variáveis.</p></div>
+</div>
+<div class="mcard rf">
+<p class="mt">CONJUNTO DE ÁRVORES</p>
+<h3>Random Forest</h3>
+<p class="mx" style="color:#4A5568">200 árvores de decisão, com profundidade máxima 12, votando juntas.</p>
+<div class="mb"><p class="ml">POR QUE ESCOLHEMOS</p><p class="mx">Captura relações não lineares e interações, e lida bem com as contagens assimétricas.</p></div>
+<div class="mb"><p class="ml">LIMITAÇÃO</p><p class="mx">Menos interpretável: a importância mostra o uso, não a direção do efeito.</p></div>
+</div>
+</div>
+<p class="small">Mesma entrada, mesmo split e class_weight="balanced" nos dois: a comparação é justa.</p>
+<aside>Escolhemos dois modelos com perfis opostos de propósito. A Regressão Logística é o baseline: simples, rápida, interpretável, e serve de régua mínima. Ela exige padronização (StandardScaler) e só captura relações lineares. O Random Forest (200 árvores, profundidade máxima 12, mínimo de 20 amostras por folha) captura relações não lineares e interações entre variáveis, é robusto às contagens assimétricas e aos outliers, e fornece a importância das variáveis, mas é menos interpretável. A pergunta que a comparação responde: a complexidade extra compensa? Os dois usam o mesmo pipeline, o mesmo split (random_state 42) e class_weight="balanced".</aside>
+</section>

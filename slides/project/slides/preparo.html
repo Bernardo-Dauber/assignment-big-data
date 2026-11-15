@@ -1,12 +1,13 @@
-<section id="preparo" class="tint">
-<p class="eyebrow">ATRIBUTOS, PIPELINE E MODELOS</p>
-<h2>Do dado limpo ao modelo em quatro passos</h2>
+<section id="preparo">
+<p class="eyebrow">DO DADO AO MODELO</p>
+<h2>O mesmo preparo para os dois modelos</h2>
 <div class="steps">
-<div class="step"><p class="sn">1</p><h3>Atributos</h3><p class="ct">Saem identificadores e readmitted (origem do alvo). CID-9 agrupado, idade pelo ponto médio. 9 numéricas, o resto categórico.</p></div>
-<div class="step"><p class="sn">2</p><h3>Divisão</h3><p class="ct">80% treino e 20% teste, estratificada pelo alvo.</p></div>
-<div class="step"><p class="sn">3</p><h3>Transformação</h3><p class="ct">StandardScaler nas numéricas e OneHotEncoder nas categóricas, dentro de um Pipeline.</p></div>
-<div class="step"><p class="sn">4</p><h3>Modelos</h3><p class="ct">Regressão Logística (baseline) e Random Forest (200 árvores, profundidade 12), com class_weight balanceado.</p></div>
+<div class="step"><p class="sn">1 · LIMPEZA</p><p class="sb">69.987</p><p class="sc">internações restantes, de 101.766. Saem gênero inválido, óbito e hospice; fica 1 internação por paciente.</p></div>
+<div class="step"><p class="sn">2 · ATRIBUTOS</p><p class="sb">33</p><p class="sc">variáveis (9 numéricas e 24 categóricas), que viram 167 colunas após o One-Hot.</p></div>
+<div class="step"><p class="sn">3 · DIVISÃO</p><p class="sb">80 / 20</p><p class="sc">55.989 para treino e 13.998 para teste, estratificados: 9,0% de positivos nos dois.</p></div>
+<div class="step"><p class="sn">4 · SEM VAZAMENTO</p><p class="sb">Pipeline</p><p class="sc">StandardScaler nas numéricas e OneHotEncoder nas categóricas, ajustados só no treino.</p></div>
 </div>
-<p class="lead">O pré-processamento é ajustado só no treino, o que evita vazamento para o teste. O class_weight dá mais peso à classe rara, a de quem reinterna.</p>
-<aside>Integrante 2 assume. Mostrar no notebook a classificação das variáveis, a separação em X e y, o split e o Pipeline. Explicar por que readmitted ficou de fora: seria o próprio alvo. Justificar a escolha dos dois modelos: um linear e interpretável e um não linear que captura interações. Profundidade limitada e min_samples_leaf reduzem overfitting.</aside>
+<div class="callout teal">Alvo raro: os dois usam class_weight="balanced", com mais peso para a classe minoritária.</div>
+<p class="src">Fonte: notebook, seções 7 a 14</p>
+<aside>Resumo do preparo, igual para os dois modelos. Limpeza: o notebook parte de 101.766 linhas e chega a 69.987. Removemos gênero inválido, pacientes que morreram ou foram para hospice (não podem ser reinternados) e mantivemos só a primeira internação de cada paciente, para não vazar informação do mesmo paciente entre treino e teste. Atributos: tiramos identificadores, a coluna readmitted (origem do alvo) e colunas constantes ou quase constantes; agrupamos os diagnósticos CID-9, usamos o ponto médio da faixa de idade e limitamos especialidade e convênio às 10 categorias mais frequentes. Ficamos com 9 numéricas e 24 categóricas, que viram 167 colunas depois do One-Hot. Divisão estratificada 80/20 com random_state 42. O pré-processamento está dentro do Pipeline, então é aprendido só no treino.</aside>
 </section>
