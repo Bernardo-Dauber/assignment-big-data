@@ -4,9 +4,9 @@ Este arquivo reúne, slide por slide, o que mostrar e a informação disponível
 
 **Regras do vídeo:** no máximo 10 minutos, os dois integrantes com câmera aberta e os dois falando. Meta: terminar em 9 min 30 s.
 **Tela:** os slides acompanham a fala. Na hora de mostrar o código e as saídas, alternem para o notebook executado no Colab, na seção indicada em cada bloco.
-**Divisão sugerida:** o integrante 1 (Bernardo) fala os slides 2 a 5, o integrante 2 fala os slides 6 a 9, e os dois fecham no 10.
+**Divisão sugerida:** o integrante 1 (Bernardo) fala os slides 2 a 4, o integrante 2 fala os slides 5 a 8, e os dois fecham no 9. A limpeza fica com o integrante 1, rapidamente, no fim do slide 4, mostrando o notebook.
 
-## Ordem e tempo sugerido (10 slides)
+## Ordem e tempo sugerido (9 slides)
 
 | # | Slide | Notebook | Quem | Tempo |
 |---|---|---|---|---|
@@ -14,14 +14,13 @@ Este arquivo reúne, slide por slide, o que mostrar e a informação disponível
 | 2 | Problema e dados | Seções 1, 3 e 4 | 1 | 1:00 |
 | 3 | Alvo desbalanceado | Seções 5 e 6.1 a 6.3 | 1 | 1:00 |
 | 4 | Quem já foi muito internado volta mais | Seção 6.4 | 1 | 0:50 |
-| 5 | Limpeza | Seções 7 e 8 | 1 | 1:00 |
-| 6 | Atributos, pipeline e modelos | Seções 9 a 14 | 2 | 1:30 |
-| 7 | Resultados | Seção 15 | 2 | 1:10 |
-| 8 | Matriz de confusão | Seção 15 | 2 | 0:50 |
-| 9 | Variáveis importantes | Seção 15 | 2 | 0:50 |
-| 10 | Análise crítica e próximos passos | Seção 16 | 1 e 2 | 1:00 |
+| 5 | Atributos, pipeline e modelos | Seções 7 a 14 | 2 | 2:00 |
+| 6 | Resultados | Seção 15 | 2 | 1:10 |
+| 7 | Matriz de confusão | Seção 15 | 2 | 0:50 |
+| 8 | Variáveis importantes | Seção 15 | 2 | 0:50 |
+| 9 | Análise crítica e próximos passos | Seção 16 | 1 e 2 | 1:00 |
 
-Total: cerca de 9 min 30 s. Se sobrar tempo, mostrem no notebook os gráficos de distribuições e outliers (6.2 e 6.3), que não têm slide próprio.
+Total: cerca de 9 min 10 s. A limpeza (seções 7 e 8) não tem slide: falem dela mostrando o notebook, dentro do slide 5, e usem o bloco "Limpeza (sem slide)" abaixo. Se sobrar tempo, mostrem no notebook os gráficos de distribuições e outliers (6.2 e 6.3), que não têm slide próprio.
 
 ---
 
@@ -49,7 +48,7 @@ Total: cerca de 9 min 30 s. Se sobrar tempo, mostrem no notebook os gráficos de
 - Valores aproximados, lidos do gráfico 6.4. Confirmem na saída do notebook.
 - Ponte para o fim: o tempo de internação é igual nas duas classes (gráfico 6.5), então nenhuma variável sozinha separa quem volta.
 
-## 5. Limpeza
+## Limpeza (sem slide, mostrar no notebook)
 - "?" convertido para nulo.
 - `weight` removida, por ter cerca de 97% de faltantes.
 - Faltantes de `payer_code`, `medical_specialty`, `race` e dos diagnósticos preenchidos com "Desconhecido".
@@ -58,14 +57,14 @@ Total: cerca de 9 min 30 s. Se sobrar tempo, mostrem no notebook os gráficos de
 - Mantida só a primeira internação de cada paciente, para evitar vazamento entre treino e teste.
 - Tamanho após a limpeza: cerca de 70 mil linhas (deduzido do teste de 13.998 linhas, que é 20% do total). Confirmem na saída do notebook, junto do número antes da limpeza.
 
-## 6. Atributos, pipeline e modelos
+## 5. Atributos, pipeline e modelos
 - Removidos: identificadores, colunas constantes e `readmitted` (origem do alvo, geraria vazamento).
 - Diagnósticos CID-9 agrupados, idade pelo ponto médio da faixa, `medical_specialty` e `payer_code` limitadas às 10 categorias mais frequentes. 9 variáveis numéricas e as demais categóricas.
 - Divisão 80% treino e 20% teste, estratificada.
 - `ColumnTransformer` com `StandardScaler` nas numéricas e `OneHotEncoder` nas categóricas, dentro de um `Pipeline`: o pré-processamento é aprendido só no treino.
 - Modelos: Regressão Logística (baseline, interpretável) e Random Forest (200 árvores, profundidade 12, captura interações). Nos dois, `class_weight="balanced"`.
 
-## 7. Resultados (conjunto de teste)
+## 6. Resultados (conjunto de teste)
 
 | Modelo | Acurácia | Precisão | Recall | F1 | ROC-AUC |
 |---|---|---|---|---|---|
@@ -78,7 +77,7 @@ Total: cerca de 9 min 30 s. Se sobrar tempo, mostrem no notebook os gráficos de
 - ROC-AUC de 0,659: melhor que o acaso (0,5), longe do ideal (1,0). Desempenho moderado.
 - Mostrem no notebook a tabela de métricas e a curva ROC.
 
-## 8. Matriz de confusão (Random Forest, teste)
+## 7. Matriz de confusão (Random Forest, teste)
 
 |  | Previu "não" | Previu "sim" |
 |---|---|---|
@@ -89,13 +88,13 @@ Total: cerca de 9 min 30 s. Se sobrar tempo, mostrem no notebook os gráficos de
 - Precisão de 15,4%: só cerca de 15% dos alertas estão certos. Para cada paciente de risco identificado, 5 a 6 recebem acompanhamento sem precisar.
 - O falso negativo é o erro mais caro em saúde. O falso positivo custa um acompanhamento extra.
 
-## 9. Variáveis importantes (Random Forest)
+## 8. Variáveis importantes (Random Forest)
 - `discharge_disposition_id` (em especial alta para casa), `number_inpatient` e, depois, `time_in_hospital`, `num_medications` e `num_lab_procedures`.
 - A relação de `number_inpatient` com a reinternação está comprovada no gráfico do slide 4. Para alta para casa não há gráfico.
 - A importância do Random Forest mostra quais variáveis o modelo mais usou, não a direção do efeito. Evitem dizer que alta para casa "reduz" o risco sem mostrar a taxa por tipo de alta.
 - Leitura: o histórico recente e a complexidade do caso são os principais sinais de retorno precoce, o que confirma a hipótese inicial.
 
-## 10. Análise crítica e próximos passos
+## 9. Análise crítica e próximos passos
 - Desempenho moderado: serve como apoio à triagem, não para decidir sozinho. Nenhuma variável sozinha separa as classes.
 - Em saúde, deixar passar um paciente de risco custa mais que um alarme falso, então o ajuste do limiar é o primeiro passo.
 - Limitações: dados de 1999 a 2008, só hospitais dos EUA, sem fatores socioeconômicos nem adesão ao tratamento.
